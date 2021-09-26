@@ -6,21 +6,21 @@ ifeq ($(PRODUCT_GMS_CLIENTID_BASE),)
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.com.google.clientidbase=android-google
 else
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    ro.com.google.clientidbase=$(PRODUCT_GMS_CLIENTID_BASE)
+#PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+ #   ro.com.google.clientidbase=$(PRODUCT_GMS_CLIENTID_BASE)
 endif
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     dalvik.vm.debug.alloc=0 \
     ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html \
     ro.url.legal.android_privacy=http://www.google.com/intl/%s/mobile/android/basic/privacy.html \
-    ro.error.receiver.system.apps=com.google.android.gms \
-    ro.setupwizard.enterprise_mode=1 \
+#    ro.error.receiver.system.apps=com.google.android.gms \
+#    ro.setupwizard.enterprise_mode=0 \
     ro.com.android.dataroaming=false \
-    ro.atrace.core.services=com.google.android.gms,com.google.android.gms.ui,com.google.android.gms.persistent \
+#    ro.atrace.core.services=com.google.android.gms,com.google.android.gms.ui,com.google.android.gms.persistent \
     ro.com.android.dateformat=MM-dd-yyyy \
     persist.sys.disable_rescue=true \
-    ro.setupwizard.rotation_locked=true
+#    ro.setupwizard.rotation_locked=true
 
 ifeq ($(TARGET_BUILD_VARIANT),eng)
 # Disable ADB authentication
@@ -83,8 +83,8 @@ PRODUCT_PACKAGES += \
     mount.ntfs
 
 # Config
-PRODUCT_PACKAGES += \
-    SimpleDeviceConfig
+#PRODUCT_PACKAGES += \
+#    SimpleDeviceConfig
 
 # Storage manager
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
@@ -95,13 +95,13 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     media.recorder.show_manufacturer_and_model=true
 
 # Overlays
-PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
-    vendor/aosp/overlay \
-    vendor/aosp/overlay-pixel \
+#PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
+#    vendor/aosp/overlay \
+#    vendor/aosp/overlay-pixel \
 
-PRODUCT_PACKAGE_OVERLAYS += \
-    vendor/aosp/overlay/common \
-    vendor/aosp/overlay-pixel/common
+#PRODUCT_PACKAGE_OVERLAYS += \
+#    vendor/aosp/overlay/common \
+#    vendor/aosp/overlay-pixel/common
 
 # TouchGestures
 PRODUCT_PACKAGES += \
@@ -110,7 +110,7 @@ PRODUCT_PACKAGES += \
 # Dex preopt
 PRODUCT_DEXPREOPT_SPEED_APPS += \
     SystemUI \
-    NexusLauncherRelease
+#    NexusLauncherRelease
 
 # SystemUI plugins
 PRODUCT_PACKAGES += \
@@ -124,14 +124,14 @@ PRODUCT_PRODUCT_PROPERTIES += \
 
 # SetupWizard configuration
 PRODUCT_PRODUCT_PROPERTIES += \
-    setupwizard.feature.baseline_setupwizard_enabled=true \
-    ro.setupwizard.enterprise_mode=1 \
-    ro.setupwizard.rotation_locked=true \
-    setupwizard.enable_assist_gesture_training=true \
-    setupwizard.theme=glif_v3_light \
-    setupwizard.feature.skip_button_use_mobile_data.carrier1839=true \
-    setupwizard.feature.show_pai_screen_in_main_flow.carrier1839=false \
-    setupwizard.feature.show_pixel_tos=false
+    setupwizard.feature.baseline_setupwizard_enabled=false \
+#    ro.setupwizard.enterprise_mode=1 \
+#    ro.setupwizard.rotation_locked=true \
+#    setupwizard.enable_assist_gesture_training=true \
+#    setupwizard.theme=glif_v3_light \
+#    setupwizard.feature.skip_button_use_mobile_data.carrier1839=true \
+#    setupwizard.feature.show_pai_screen_in_main_flow.carrier1839=false \
+#    setupwizard.feature.show_pixel_tos=false
 
 # StorageManager configuration
 PRODUCT_PRODUCT_PROPERTIES += \
@@ -147,10 +147,10 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.url.legal.android_privacy=http://www.google.com/intl/%s/mobile/android/basic/privacy.html
 
 # Google Play services configuration
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.com.google.clientidbase=android-google \
-    ro.error.receiver.system.apps=com.google.android.gms \
-    ro.atrace.core.services=com.google.android.gms,com.google.android.gms.ui,com.google.android.gms.persistent
+#PRODUCT_PRODUCT_PROPERTIES += \
+#    ro.com.google.clientidbase=android-google \
+#    ro.error.receiver.system.apps=com.google.android.gms \
+#    ro.atrace.core.services=com.google.android.gms,com.google.android.gms.ui,com.google.android.gms.persistent
 
 # TextClassifier
 PRODUCT_PACKAGES += \
@@ -168,13 +168,13 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.iorapd.enable=true
 
 # Pixel customization
-TARGET_SUPPORTS_GOOGLE_RECORDER ?= true
-TARGET_INCLUDE_STOCK_ARCORE ?= true
+#TARGET_SUPPORTS_GOOGLE_RECORDER ?= true
+#TARGET_INCLUDE_STOCK_ARCORE ?= true
 TARGET_INCLUDE_LIVE_WALLPAPERS ?= true
-ifeq ($(TARGET_INCLUDE_LIVE_WALLPAPERS),true)
-PRODUCT_PACKAGES += \
-    PixelLiveWallpapersOverlay
-endif
+#ifeq ($(TARGET_INCLUDE_LIVE_WALLPAPERS),true)
+#PRODUCT_PACKAGES += \
+#    PixelLiveWallpapersOverlay
+#endif
 
 # Face Unlock
 TARGET_FACE_UNLOCK_SUPPORTED ?= true
@@ -197,12 +197,12 @@ $(call inherit-product, vendor/aosp/config/bootanimation.mk)
 $(call inherit-product, vendor/aosp/config/fonts.mk)
 
 # GApps
-$(call inherit-product, vendor/gapps/config.mk)
+#$(call inherit-product, vendor/gapps/config.mk)
 
 # OTA
-$(call inherit-product, vendor/aosp/config/ota.mk)
+#$(call inherit-product, vendor/aosp/config/ota.mk)
 
 # RRO Overlays
-$(call inherit-product, vendor/aosp/config/rro_overlays.mk)
+#$(call inherit-product, vendor/aosp/config/rro_overlays.mk)
 
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
